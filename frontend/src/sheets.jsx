@@ -48,6 +48,7 @@ import { parseImportFile, mergeImportedRoutines, freshRoutines } from './lib/imp
 import { importHevyData, HevyApiError, HEVY_DEV_SETTINGS, mergeHevyRoutines, hevySummaryCounts } from './lib/import-hevy.js'
 import { buildPlanBundle, buildProgrammeBundle, parsePlan, mergePlan } from './lib/plan-share.js'
 import PrintPlanSheet from './components/PrintPlanSheet.jsx'
+import { openSessionRating } from './fork/SessionRatingSheet.jsx' // fork: Lifestyle (FORK.md)
 import { printWorkout } from './lib/report-print.js'
 import { estimate1RM, best1RM, is1RMRecord, REP_CAP, formulaOf, FORMULA_NAMES } from './lib/onerm.js'
 import { setTrendOn, setTrendsFor, lastTimeBefore, trendGlyph, trendLabel } from './lib/set-trend.js'
@@ -4144,4 +4145,5 @@ function doFinishWorkout() {
   useUI.getState().stopWork()
   beep(snd(), 880, 0.15); beep(snd(), 1100, 0.15, 0.18); beep(snd(), 1320, 0.3, 0.36)
   ui().openSheet(close => <FinishSummary w={shown} prs={prs} e1prs={e1prs} additions={additions} close={close} />, { kind: 'center', locked: true, wide: true })
+  if (!past) openSessionRating(shown) // fork: Lifestyle, how did it feel? (FORK.md)
 }

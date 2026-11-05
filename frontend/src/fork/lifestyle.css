@@ -1,0 +1,31 @@
+/* Lifestyle (fork addition). Built on the app's own variables so light and dark both work. */
+.ls-sheet { padding: 4px 2px 8px; }
+.ls-sheet h3 { margin-bottom: 4px; }
+.ls-sub { color: var(--label-2); font-size: var(--fs-footnote); margin: 0 0 14px; }
+.ls-card { background: var(--surface); border-radius: var(--r-card); padding: 14px var(--pad); }
+
+.ls-q { margin-bottom: 16px; }
+.ls-q-label { font-size: var(--fs-callout); font-weight: 600; margin-bottom: 8px; }
+.ls-scale { display: grid; gap: 6px; }
+.ls-scale-5 { grid-template-columns: repeat(5, 1fr); }
+.ls-scale-10 { grid-template-columns: repeat(10, 1fr); gap: 4px; }
+.ls-num {
+  min-height: 44px; border: 0; border-radius: var(--r-sm);
+  background: var(--surface-2); color: var(--label);
+  font-size: var(--fs-callout); font-weight: 600; font-variant-numeric: tabular-nums;
+  cursor: pointer; transition: background .12s, transform .08s;
+}
+.ls-scale-10 .ls-num { min-height: 40px; font-size: var(--fs-subhead); padding: 0; }
+.ls-num:active { transform: scale(.94); }
+.ls-num.on { background: var(--acc); color: var(--on-acc); }
+.ls-scale.inverted .ls-num.on { background: var(--orange); color: #000; }
+.ls-ends { display: flex; justify-content: space-between; color: var(--label-3); font-size: var(--fs-caption); margin-top: 4px; }
+
+.ls-note { width: 100%; margin: 4px 0 12px; resize: vertical; }
+.ls-actions { display: flex; flex-direction: column; gap: 6px; }
+
+.ls-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
+.ls-chip { background: var(--surface-2); border-radius: var(--r-sm); padding: 10px 4px; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.ls-chip-v { font-size: var(--fs-title3); font-weight: 700; font-variant-numeric: tabular-nums; }
+.ls-chip-l { font-size: var(--fs-caption2); color: var(--label-2); text-align: center; }
+.ls-note-show { color: var(--label-2); font-size: var(--fs-subhead); margin: 0 0 12px; }

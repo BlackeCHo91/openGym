@@ -56,6 +56,7 @@ import Login from './views/Login.jsx'
 import MobileOnboarding from './views/MobileOnboarding.jsx'
 import PermissionSteps from './views/PermissionSteps.jsx'
 import Home from './views/Home.jsx'
+import Me from './fork/Me.jsx' // fork: Lifestyle (FORK.md)
 import Plan from './views/Plan.jsx'
 import Workout from './views/Workout.jsx'
 
@@ -344,6 +345,7 @@ function Shell() {
       <Route path="/stats" element={<Stats />} />
       <Route path="/history" element={<History />} />
       <Route path="/library" element={<Library />} />
+      <Route path="/me" element={<Me />} />{/* fork: Lifestyle (FORK.md) */}
       <Route path="/muscles" element={<Muscles />} />
       <Route path="/structural-balance" element={<StructuralBalance />} />
       {isOn(S, 'body') && <Route path="/progress-photos" element={<ProgressPhotos />} />}

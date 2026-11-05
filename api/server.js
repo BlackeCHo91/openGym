@@ -38,6 +38,7 @@ import { createMediaStore, mediaLimits, mediaConfig, MediaError, HASH_RE } from 
 import { effectiveRoutineId } from './queue.js';
 import { stampPut } from './sync-stamps.js';
 import { atomicWrite as durableWrite } from './durable.js';
+import { lifestyleRoutes } from './lifestyle.js'; // fork: Lifestyle (FORK.md)
 import { ipv6Groups, guardedLookup, pushEndpointError, MAX_PUSH_ENDPOINT } from './net-guard.js';
 import { createIntegrations } from './integrations/index.js';
 import { integrationRoutes } from './integrations/routes.js';
@@ -2985,6 +2986,8 @@ const routes = {
   // answers, and the client already treats that as "this server does not store them".
   ...(MEDIA_ON ? mediaRoutes : {})
 };
+// fork: Lifestyle routes (FORK.md)
+Object.assign(routes, lifestyleRoutes({ dir: DATA, readSession, readBody, json }));
 
 /* ---------- Coach: boot recovery, notifications, scheduled reviews ---------- */
 // A job that was running when the process died is not coming back; say so rather than leaving

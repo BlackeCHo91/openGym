@@ -32,8 +32,8 @@ export default function TabBar({ onStart }) {
   if (!user && !isGuest) return null
   const cur = loc.pathname.split('/')[1] || 'home'
   // A screen without a tab of its own lights the tab it is opened from (Muscles from both).
-  const PARENT = { history: 'stats', 'structural-balance': 'stats', 'progress-photos': 'stats', measurements: 'stats', settings: 'home', checkin: 'home', muscles: 'library' }
-  const parent = cur === 'muscles' && loc.state?.from === '/stats' ? 'stats' : PARENT[cur]
+  const PARENT = { history: 'stats', 'structural-balance': 'stats', 'progress-photos': 'stats', measurements: 'stats', settings: 'home', checkin: 'home', muscles: 'me', library: 'me' /* fork: Lifestyle */ }
+  const parent = cur === 'muscles' && loc.state?.from === '/stats' ? 'stats' : (cur === 'measurements' && loc.state?.from === '/me') ? 'me' : PARENT[cur]
   const on = k => cur === k || parent === k
 
   // Root tabs are peers, not another level to unwind with Android Back. The tab you are already
@@ -71,7 +71,8 @@ export default function TabBar({ onStart }) {
           : <span>{S.active ? (cur === 'workout' ? t('Workout') : S.active.editingWorkoutId ? t('Edit workout') : t('Resume')) : t('Start')}</span>}
       </button>
       <Tab active={on('stats')} icon="chart" label={t('Stats')} onClick={() => switchTab('/stats')} tour="tab-stats" />
-      <Tab active={on('library')} icon="dumbbell" label={t('Exercises')} onClick={() => switchTab('/library')} tour="tab-library" />
+      {/* fork: Lifestyle (FORK.md). The Exercises tab became Ich; the library opens from there. */}
+      <Tab active={on('me')} icon="personCircle" label="Ich" onClick={() => switchTab('/me')} tour="tab-library" />{/* the guided tour still points here for the library */}
     </nav>
   )
 }

@@ -12,10 +12,9 @@
 # job summary through scripts/ci/test-report.mjs and keeps them as the `test-stats` artifact.
 name: Tests
 
+# fork: upstream's full suite, run by hand. Some upstream UI tests expect the Exercises tab this
+# fork replaced with Ich (FORK.md); fork-checks.yml covers the fork's own code on every push.
 on:
-  pull_request:
-  push:
-    branches: [main, stores, watch, 'ci-*']
   workflow_dispatch:
 
 permissions:

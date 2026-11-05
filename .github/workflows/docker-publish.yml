@@ -101,7 +101,7 @@ jobs:
         with:
           context: ${{ matrix.context }}
           file: ${{ matrix.file }}
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64   # fork: one Unraid box, x86 only (twice as fast)
           build-args: |
             VERSION=${{ steps.version_meta.outputs.VERSION }}
             VCS_REF=${{ steps.version_meta.outputs.VCS_REF }}
